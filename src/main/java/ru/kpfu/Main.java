@@ -21,6 +21,10 @@ public class Main {
   }
 
   private static double getWeightSum(Graph g) {
-    return g.getEdges().stream().map(Graph.Edge::getC).reduce(0d, (a, b) ->  a + b);
+    double sum = 0d;
+    for (Graph.Edge edge : g.getEdges()) {
+      sum += edge.getC();
+    }
+    return sum;
   }
 }

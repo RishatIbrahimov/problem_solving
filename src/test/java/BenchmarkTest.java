@@ -27,19 +27,16 @@ public class BenchmarkTest {
 
   @BeforeExperiment
   public void setUp() {
-    System.out.println("setUp: " + vertexCount);
     graph = Generator.generate(vertexCount);
   }
 
   @Benchmark
   public void annealing() {
-    System.out.println("annealing: " + vertexCount);
-    SimulatedAnnealing.anneal(graph, 0.00001, 10, 100000);
+    SimulatedAnnealing.anneal(graph, 0.00001, 10, 1000);
   }
 
   @Benchmark
-  public void mst(long reps) {
-    System.out.println("mst: " + vertexCount);
+  public void mst() {
     KruskalMST.findMST(graph);
   }
 
